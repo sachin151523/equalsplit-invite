@@ -572,6 +572,7 @@
     var groupId   = params.get('groupId')   || 'ms1h74wi7m95u';
     var groupName = params.get('groupName') || 'Home';
     var inviter   = params.get('inviter')   || 'A friend';
+    var token     = params.get('token')     || '';
 
     // ── Update UI ────────────────────────────────────────────────────────────
     document.getElementById('groupNameDisplay').textContent = groupName;
@@ -595,7 +596,7 @@
     document.getElementById('groupEmoji').textContent = matchedEmoji;
 
     // ── Deep link URL ────────────────────────────────────────────────────────
-    var deepLink = 'equalsplit://join?groupId=' + groupId + '&groupName=' + encodeURIComponent(groupName);
+    var deepLink = 'equalsplit://join?groupId=' + groupId + '&groupName=' + encodeURIComponent(groupName) + (token ? '&token=' + encodeURIComponent(token) : '');
 
     // ── Join flow ────────────────────────────────────────────────────────────
     function joinWithApp() {
